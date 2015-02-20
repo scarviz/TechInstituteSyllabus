@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:paddingLeft="@dimen/activity_horizontal_margin"
+				android:paddingRight="@dimen/activity_horizontal_margin"
+				android:paddingTop="@dimen/activity_vertical_margin"
+				android:paddingBottom="@dimen/activity_vertical_margin"
+				tools:context="jp.techinstitute.ti_noda.syllabus.CourseDetail">
+
+	<!-- 日付 -->
+	<TextView
+		android:id="@+id/dateText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="2015/02/22"
+		android:layout_alignParentRight="true"/>
+	<!--
+		layout_alignParentRightで親Viewに対して右に配置する
+		textAppearanceMediumに変更
+	-->
+
+	<!-- 講義タイトル -->
+	<TextView
+		android:id="@+id/titleText"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/dateText"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="Sample Title"
+		android:gravity="center_horizontal"/>
+	<!-- gravityで中央揃え。dateTextの左に位置するようになっていたが、除去 -->
+
+	<!-- 講師名 -->
+	<TextView
+		android:id="@+id/teacherText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/titleText"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="Sample Teacher"
+		android:layout_alignParentRight="true"
+		android:layout_marginTop="11dp"/>
+	<!--
+		layout_alignParentRightで親Viewに対して右に配置する
+		teacherItemNameの右に配置していたが除去
+		teacherItemNameをベース位置にしていたが除去。代わりにマージンTopを定義
+		teacherItemNameより先に定義するように移動
+	-->
+
+	<!-- 「講師：」という文字を表示するためのもの -->
+	<TextView
+		android:id="@+id/teacherItemName"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/titleText"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text=" 講師："
+		android:layout_toLeftOf="@id/teacherText"
+		android:layout_alignBaseline="@id/teacherText"/>
+	<!--
+		teacherTextの左に配置
+		マージンTopを除去し、teacherItemNameをベース位置にする
+	-->
+
+	<!-- 詳細情報 -->
+	<TextView
+		android:id="@+id/detailText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/teacherText"
+		android:layout_marginTop="@dimen/activity_vertical_margin"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:text="Sample detail\nSample detail2\nSample detail3"/>
+	<!--
+		titleTextの左に配置していたのを除去
+		teacherTextの下に配置
+		マージンTop(teacherTextから)で、activity_vertical_margin下げる
+	-->
+</RelativeLayout>
